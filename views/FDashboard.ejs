@@ -1,0 +1,124 @@
+<%- include('base.ejs') %> <%- include('navbar.ejs',{loginType:loginType}) %>
+<style>
+  .accordion {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    max-height: 80vh;
+  }
+
+  .accordion::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+  .accordion-butt:not(.collapsed)::after {
+    display: none;
+  }
+</style>
+<div class="container px-4 pt-4">
+  <div class="row gx-5">
+    <div class="col-4">
+      <div class="card">
+        <img
+          src="/views/assets/image_processing20200827-21745-9m67mh.gif"
+          class="card-img-top"
+          alt="Profile"
+        />
+        <div class="card-body">
+          <h2 class="card-title"><%=name%></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Facult ID: </strong><%=faculty_id%>
+          </li>
+          <li class="list-group-item"><strong>Email: </strong><%=email%></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="card p-2">
+        <div class="accordion" id="accordionExample">
+          <% for (var key in answeredQuestions) { %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<%=key%>">
+              <button
+                class="accordion-button <%if(key!= 0){%>collapsed<%}%>"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse<%=key%>"
+                aria-expanded="true"
+                aria-controls="collapse<%=key%>"
+              >
+                Q . <%=answeredQuestions[key].description%>
+              </button>
+            </h2>
+            <div
+              id="collapse<%=key%>"
+              class="accordion-collapse collapse <%if(key==0){%>show<%}%>"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <%=answeredQuestions[key].ans_description%>
+              </div>
+            </div>
+          </div>
+          <%}%>
+        </div>
+        <%if(unAnsweredQuestions.length>0){%>
+        <div
+          class="accordion my-3"
+          id="accordionExample"
+          style="overflow-y: scroll"
+        >
+          <h5 class="card-text">Not Answered Yet</h5>
+          <% for (var key in unAnsweredQuestions) { %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<%=key%>">
+              <div
+                class="accordion-button accordion-butt d-flex flex-row justify-content-between"
+                type="button"
+              >
+                <span>Q . <%=unAnsweredQuestions[key].description%></span>
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseExample<%=key%>"
+                  aria-expanded="false"
+                  aria-controls="collapseExample<%=key%>"
+                >
+                  Add Answer
+                </button>
+              </div>
+              <div class="collapse p-3" id="collapseExample<%=key%>">
+                <form
+                  action="/AddAnswer?answering_id=<%=unAnsweredQuestions[key].query_id%>&key=<%=key%>"
+                  method="post"
+                >
+                  <div class="mb-3">
+                    <textarea
+                      class="form-control"
+                      id="Answer<%=key%>"
+                      name="Answer<%=key%>"
+                      rows="3"
+                      placeholder="Enter your Answer"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    value="AddAnswer"
+                    class="btn btn-primary"
+                  >
+                    Add Answer
+                  </button>
+                </form>
+              </div>
+            </h2>
+          </div>
+          <%}%>
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>

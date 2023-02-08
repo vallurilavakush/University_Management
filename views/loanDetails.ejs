@@ -1,0 +1,43 @@
+<%- include('base.ejs') %> <%- include('navbar.ejs') %>
+
+<div
+  class="w-100 d-flex justify-content-center align-items-center"
+  style="min-height: 90vh"
+>
+  <div class="card">
+    <img
+      src="/views/assets/giphy.gif"
+      class="card-img-top"
+      alt="Profile"
+      style="height: 40vh"
+    />
+    <div class="d-flex flex-row">
+      <div class="card m-2" style="width: 20rem">
+        <div class="card-body">
+          <h2 class="card-title"><%=name%></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Student ID: </strong><%=loan_id%>
+          </li>
+          <li class="list-group-item">
+            <strong>Loan Amount: </strong>$<%=loan_amount%>
+          </li>
+        </ul>
+      </div>
+      <div class="card m-2" style="width: 20rem">
+        <div class="card-body">
+          <h2 class="card-title"><%=bank_name%> Bank</h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Bank ID: </strong><%=bank_id%>
+          </li>
+          <li class="list-group-item">
+            <strong>Email: </strong><%=bank_email%>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

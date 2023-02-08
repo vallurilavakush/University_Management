@@ -1,0 +1,23 @@
+{
+  "name": "middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon -e js,ejs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "mysql2": "^2.3.3",
+    "string-replace-middleware": "^1.0.2"
+  }
+}

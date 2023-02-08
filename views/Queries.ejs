@@ -1,0 +1,108 @@
+<%- include('base.ejs') %> <%- include('navbar.ejs') %>
+<style>
+  .accordion {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    max-height: 80vh;
+  }
+
+  .accordion::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+  .accordion-butt:not(.collapsed)::after {
+    display: none;
+  }
+</style>
+<div class="container px-4 pt-4">
+  <div class="row gx-5">
+    <div class="col-4">
+      <div class="card">
+        <img
+          src="/views/assets/0953f5efe1dd4149530e434909971f23.gif"
+          class="card-img-top"
+          alt="Profile"
+          style="height: 30vh"
+        />
+        <div class="card-body">
+          <h3 class="card-text">Have a Question ?</h3>
+          <form action="/AddQuestion" method="post">
+            <div class="mb-3">
+              <label for="Subject" class="form-label">Domain</label>
+              <input
+                type="text"
+                class="form-control"
+                id="Domain"
+                name="Domain"
+                placeholder="Domain of Question"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="Question" class="form-label">Question</label>
+              <textarea
+                class="form-control"
+                id="Question"
+                name="Question"
+                rows="3"
+                placeholder="Enter your Question in detail"
+              ></textarea>
+            </div>
+            <button type="submit" value="AddQuestion" class="btn btn-primary">
+              Add Question
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="card p-2">
+        <div class="accordion" id="accordionExample">
+          <% for (var key in answeredQuestions) { %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<%=key%>">
+              <button
+                class="accordion-button <%if(key!= 0){%>collapsed<%}%>"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapse<%=key%>"
+                aria-expanded="true"
+                aria-controls="collapse<%=key%>"
+              >
+                Q . <%=answeredQuestions[key].description%>
+              </button>
+            </h2>
+            <div
+              id="collapse<%=key%>"
+              class="accordion-collapse collapse <%if(key==0){%>show<%}%>"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <%=answeredQuestions[key].ans_description%>
+              </div>
+            </div>
+          </div>
+          <%}%>
+        </div>
+        <%if(unAnsweredQuestions.length>0){%>
+        <div
+          class="accordion my-3"
+          id="accordionExample"
+          style="overflow-y: scroll"
+        >
+          <h5 class="card-text">Not Answered Yet</h5>
+          <% for (var key in unAnsweredQuestions) { %>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading<%=key%>">
+              <div class="accordion-button accordion-butt" type="button">
+                Q . <%=unAnsweredQuestions[key].description%>
+              </div>
+            </h2>
+            <%}%>
+          </div>
+        </div>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>

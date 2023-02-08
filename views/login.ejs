@@ -1,0 +1,76 @@
+<%- include('base.ejs') %>
+
+<div class="container p-0" style="min-height: 100vh">
+  <div class="row">
+    <div class="col-7">
+      <img
+        src="/views/assets/login-image.svg"
+        style="height: 100vh"
+        alt="Profile"
+      />
+    </div>
+    <div
+      class="col-5 d-flex align-items-center justify-content-center"
+      style="min-height: 100vh"
+    >
+      <div class="card">
+        <div class="card-text text-center fw-bold fs-4 mt-2">Login</div>
+        <hr />
+        <div class="card-body">
+          <form action="/auth" method="post">
+            <select
+              class="form-select mb-3"
+              name="select"
+              id="select"
+              aria-label="Default select example"
+            >
+              <option selected value="Student">Student</option>
+              <option value="Faculty">Faculty</option>
+            </select>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                type="email"
+                name="username"
+                placeholder="Username"
+                id="username"
+                type="email"
+                class="form-control"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Password"
+                id="password"
+                required
+              />
+            </div>
+
+            <div class="text-center">
+              <button type="submit" value="Login" class="btn btn-primary">
+                Submit
+              </button>
+            </div>
+          </form>
+          <div class="text-center">
+            <div class="my-3">
+              <a href="/registration">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

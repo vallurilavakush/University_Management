@@ -1,0 +1,27 @@
+<%- include('base.ejs') %> <%- include('navbar.ejs') %>
+
+<div
+  class="w-100 d-flex justify-content-center align-items-center"
+  style="min-height: 90vh"
+>
+  <div class="card" style="width: 20rem">
+    <img
+      src="/views/assets/d8wwyu7-559b1937-4e06-4d12-8992-2b7eec7d7018.gif"
+      class="card-img-top"
+      alt="Profile"
+    />
+    <div class="card-body">
+      <h2 class="card-title"><%=name%></h2>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Student ID: </strong><%=student_id%>
+      </li>
+      <li class="list-group-item"><strong>Email: </strong><%=email%></li>
+      <li class="list-group-item">
+        <strong>Mobile Number: </strong><%=mobile%>
+      </li>
+      <li class="list-group-item"><strong>Domain: </strong><%=domain%></li>
+    </ul>
+  </div>
+</div>

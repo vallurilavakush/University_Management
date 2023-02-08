@@ -1,0 +1,98 @@
+<%- include('base.ejs') %>
+<div class="container p-0" style="min-height: 100vh">
+  <div class="row">
+    <div class="col-7">
+      <img
+        src="/views/assets/chemist-img.svg"
+        style="height: 100vh"
+        alt="Profile"
+      />
+    </div>
+    <div
+      class="col-5 d-flex align-items-center justify-content-center"
+      style="min-height: 100vh"
+    >
+      <div class="card">
+        <div class="card-text text-center fw-bold fs-4 mt-2">Register</div>
+        <hr />
+        <div class="card-body">
+          <form action="/register" method="post">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Full Name</label
+              >
+              <input
+                name="fullName"
+                placeholder="Full Name"
+                id="fullName"
+                type="text"
+                class="form-control"
+                aria-describedby="NameHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                name="username"
+                placeholder="Username"
+                id="username"
+                type="email"
+                class="form-control"
+                aria-describedby="emailHelp"
+              />
+              <div id="emailHelp" class="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Student Id</label
+              >
+              <input
+                name="studentId"
+                placeholder="Student Id"
+                id="studentId"
+                type="text"
+                class="form-control"
+                aria-describedby="NameHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Mobile Number</label
+              >
+              <input
+                name="mobileNumber"
+                placeholder="Mobile Number"
+                id="mobileNumber"
+                type="number"
+                class="form-control"
+                aria-describedby="mobileNumberHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="Password"
+                id="password"
+                required
+              />
+            </div>
+            <div class="text-center">
+              <button type="submit" value="Login" class="btn btn-primary">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

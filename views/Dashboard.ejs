@@ -1,0 +1,56 @@
+<%- include('base.ejs') %> <%- include('navbar.ejs') %>
+
+<style>
+  .twitter {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll;
+    max-height: 78vh;
+  }
+
+  .twitter::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+  }
+</style>
+<div class="container px-4 pt-4">
+  <div class="row gx-5">
+    <div class="col-5">
+      <div class="card">
+        <img
+          src="/views/assets/b2368357895b1f65c8180e34bf00fdea.jpeg"
+          class="card-img-top"
+          alt="Profile"
+          style="height: 30vh"
+        />
+        <div class="card-body">
+          <h2 class="card-title"><%=name%></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>University ID: </strong><%=university_id%>
+          </li>
+          <li class="list-group-item"><strong>Email: </strong><%=email%></li>
+          <li class="list-group-item">
+            <strong>Mobile Number: </strong><%=mobile%>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="card p-2" style="min-height: 80vh">
+        <div class="twitter">
+          <a
+            class="twitter-timeline"
+            href="https://twitter.com/UNTsocial?ref_src=twsrc%5Etfw"
+            >Tweets by UNTsocial</a
+          >
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

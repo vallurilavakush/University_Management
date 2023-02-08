@@ -1,0 +1,49 @@
+<%- include('base.ejs') %> <%- include('navbar.ejs') %>
+
+<div
+  class="w-100 d-flex justify-content-center align-items-center"
+  style="min-height: 90vh"
+>
+  <div class="card">
+    <img
+      src="/views/assets/30f8f7eaa9f4dcfa506df11ddae32de2.gif"
+      class="card-img-top"
+      alt="Profile"
+      style="height: 30vh"
+    />
+    <div class="d-flex flex-row">
+      <div class="card m-2" style="width: 20rem">
+        <div class="card-body">
+          <h2 class="card-title"><%=name%></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Student ID: </strong><%=student_id%>
+          </li>
+          <li class="list-group-item"><strong>Email: </strong><%=email%></li>
+          <li class="list-group-item">
+            <strong>Mobile Number: </strong><%=mobile%>
+          </li>
+          <li class="list-group-item"><strong>Domain: </strong><%=domain%></li>
+        </ul>
+      </div>
+      <div class="card m-2" style="width: 20rem">
+        <div class="card-body">
+          <h2 class="card-title"><%=company%></h2>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Company ID: </strong><%=company_id%>
+          </li>
+          <li class="list-group-item">
+            <strong>Email: </strong><%=company_email%>
+          </li>
+          <li class="list-group-item">
+            <strong>Internship ID: </strong><%=internship_id%>
+          </li>
+          <li class="list-group-item"><strong>Job Role: </strong>Intern</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
